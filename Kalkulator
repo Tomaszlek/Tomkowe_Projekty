@@ -1,0 +1,151 @@
+#include <iostream>
+#include <math.h>
+
+using namespace std;
+
+void dodawanie()
+{
+    double skladnik_I, skladnik_II, suma;
+    cout<<"Podaj pierwsza liczbe:";
+    cin>>skladnik_I;
+    cout<<"Podaj druga liczbe:";
+    cin>>skladnik_II;
+    suma = skladnik_I + skladnik_II;
+    cout<<"Wynik dodawania wynosi:"<<suma<<endl;
+}
+
+void odejmowanie()
+{
+    double skladnik_I, skladnik_II, roznica;
+    cout<<"Podaj pierwsza liczbe:";
+    cin>>skladnik_I;
+    cout<<"Podaj druga liczbe:";
+    cin>>skladnik_II;
+    roznica = skladnik_I - skladnik_II;
+    cout<<"Wynik odejmowania wynosi:"<<roznica<<endl;
+}
+
+void mnozenie()
+{
+    double skladnik_I, skladnik_II, iloczyn;
+    cout<<"Podaj pierwsza liczbe:";
+    cin>>skladnik_I;
+
+    cout<<"Podaj druga liczbe:";
+    cin>>skladnik_II;
+    if(skladnik_I <= 0 || skladnik_II <= 0)
+    {
+        cout<<"Wynik mnozenia wynosi okragle ZERO!"<<endl;
+    }
+else
+{
+    iloczyn = skladnik_I * skladnik_II;
+    cout<<"Wynik mnozenia wynosi:"<<iloczyn<<endl;
+}
+}
+
+void dzielenie()
+{
+    double skladnik_I, skladnik_II, iloraz;
+    cout<<"Podaj pierwsza liczbe:";
+    cin>>skladnik_I;
+    cout<<"Podaj druga liczbe:";
+    cin>>skladnik_II;
+
+    if(skladnik_I<=0 || skladnik_II <=0)
+    {
+        cout<<"Wynik dzielenia wynosi okragle ZERO!"<<endl;
+    }
+    else
+    {
+        iloraz = skladnik_I / skladnik_II;
+        cout<<"Wynik dzielenia wynosi:"<<iloraz<<endl;
+    }
+
+}
+
+void potegowanie()
+{
+    double podstawa, wynik = 1;
+    int stopien;
+
+    cout<<"Podaj liczbę, ktora bedziesz podnosic do wybranej potegi:";
+    cin>>podstawa;
+    cout<<"Podaj do jakiej potegi zamierzasz podniesc ta liczbe:";
+    cin>>stopien;
+
+    for (int i = 1; i<=stopien; i++)
+    {
+        wynik = wynik * podstawa;
+    }
+    cout<<"Wynikiem potegowania jest liczba:"<<wynik<<endl;
+}
+void pierwiastkowanie()
+{
+    double podstawa;
+    cout << "Wpisz liczbe jaka chcesz pierwiastkowac: ";
+    cin >> podstawa;
+    cout << "Wynikiem pierwiastkowania jest liczba: "<<sqrt(podstawa) << endl;
+}
+int main()
+{
+    int opcja;
+    for(;;)
+    {
+        cout<<"MENU KALKULATORA"<<endl;
+        cout<<"[1]Dodawanie"<<endl;
+        cout<<"[2]Odejmowanie"<<endl;
+        cout<<"[3]Mnozenie"<<endl;
+        cout<<"[4]Dzielenie"<<endl;
+        cout<<"[5]Potegowanie"<<endl;
+        cout<<"[6]Pierwiastkowanie"<<endl;
+        cout<<"[0]Wyjscie"<<endl;
+        cout<<"Wybierz opcje:";
+
+        cin>>opcja;
+        switch(opcja)
+        {
+            case 1:
+            {
+                dodawanie();
+                break;
+            }
+            case 2:
+            {
+                odejmowanie();
+                break;
+            }
+            case 3:
+            {
+                mnozenie();
+                break;
+            }
+            case 4:
+            {
+                dzielenie();
+                break;
+            }
+            case 5:
+            {
+                potegowanie();
+                break;
+            }
+            case 6:
+            {
+                 pierwiastkowanie();
+                 break;
+            }
+            case 0:
+            {
+                odejmowanie();
+                break;
+            }
+            default:
+            {
+                    cout<<"Nie ma takiej opcji w menu! Prosze sprobowac ponownie."<<endl;
+                    break;
+            }
+        }
+    }
+    return 0;
+}
