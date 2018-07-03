@@ -1,0 +1,21 @@
+#include <iostream>
+
+bool wczytaj_liczbe( int & liczba )
+{
+    std::cin.clear();
+    std::cin.sync();
+    std::cin >> liczba;
+    return std::cin.good();
+}
+
+int main()
+{
+    int x;
+    do
+    {
+        std::cout << "Podaj liczbe: ";
+    } while( wczytaj_liczbe( x ) == false );
+    
+    std::cout << "Liczba podana to: " << x << std::endl;
+    return 0;
+}
