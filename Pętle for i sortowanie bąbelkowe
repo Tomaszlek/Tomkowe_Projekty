@@ -1,0 +1,71 @@
+#include <iostream>
+#include <cstdlib>
+#include <ctime>
+
+using namespace std;
+
+void wylosujLiczby(int tablica[], int ilosc_liczb)
+{
+    srand(time(NULL));
+    for(int i = 1; i<=ilosc_liczb; i++)
+    {
+        tablica[i] = rand()%20 + 10;
+    }
+}
+void wypiszTablice(int tablica[], int ilosc_liczb)
+{
+  for(int i = 1; i<=ilosc_liczb; i++)
+    {
+        cout<<tablica[i]<<endl;
+    }
+}
+void wypiszTabliceOdTylu(int tablica[], int ilosc_liczb)
+{
+   for(int i=1; i<=ilosc_liczb; i++)
+   {
+       cout<<tablica[ilosc_liczb - i]<<endl;
+   }
+}
+int znajdzMinimum(int tablica[], int ilosc_liczb)
+{
+    int minimum;
+    for (int i=1; i<ilosc_liczb; i++)
+    {
+         for (int j=0; j<ilosc_liczb; j++)
+         {
+            if (tablica[j]>tablica[j+1])
+            swap(tablica[j], tablica[j+1]);
+         }
+    }
+    minimum = tablica[0];
+    return minimum;
+}
+int znajdzMaksimum(int tablica[], int ilosc_liczb)
+{
+    int maksimum;
+    for (int i=1; i<ilosc_liczb; i++)
+    {
+          for (int j=1; j<ilosc_liczb; j++)
+          {
+                  if (tablica[j]>tablica[j+1])
+                swap(tablica[j], tablica[j+1]);
+          }
+    }
+    maksimum = tablica[9];
+   return maksimum;
+}
+void wypiszMinMax(int minimum, int maksimum)
+{
+    cout<<"Minimum: "<<minimum<<", "<<"Maksimum: "<<maksimum;
+}
+int main()
+{
+    int tablica[ 10 ];
+    wylosujLiczby( tablica, 10 );
+    wypiszTablice( tablica, 10 );
+    wypiszTabliceOdTylu( tablica, 10 );
+    int iMin = znajdzMinimum( tablica, 10 );
+    int iMax = znajdzMaksimum( tablica, 10 );
+    wypiszMinMax( iMin, iMax );
+    return 0;
+}
